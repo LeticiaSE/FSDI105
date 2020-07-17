@@ -14,10 +14,10 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
             
@@ -28,10 +28,64 @@
             </form>
         </div>
     </nav>
+<!--
+    <p class="container"></p>
+    <p>Name: </p>
+    <p>Age:</p>
+    <p>Breed</p>
+    <p>Gender</p>
+    <p>service</p>
+    <p>Owner Name: </p>
+    <p>Phone: </p>
+-->  
+
 
 
       <div class="container">
         <h1 class="text-center">Register a Pet</h1>
+
+            <p>
+                <label for="name">Name:</label>
+                <input class="register-inputs" type="text" id="petName">
+                
+            </p>
+            <p>
+                <label for="age">Age:</label>
+                <input class="register-inputs" type="number" name="age" id="petAge"/>
+            </p> 
+            <p>
+                <label for="breed">Breed:</label>
+                <input class="register-inputs" type="text" name="breed" id="petBreed"/>
+            </p>
+            <p>
+                <label for="gender">Gender:</label>
+                <input class="register-inputs" type="text" name="gender" id="petGender"/>
+            </p>
+            <p>
+                <label for="service">Service:</label>
+                <select class="register-inputs" name="service" id="petService">
+                    <option value="hair cut"> Hair Cut</option>
+                    <option value="nails cut">Nails Cut</option>
+                    <option value="full service">Full service</option>
+                </select>
+            </p> 
+            <p>
+                <label for="ownerName">Owner Name:</label>
+                <input class="register-inputs" type="text" name="ownerName" id="ownerName"/>
+            </p>
+            <p>
+                <label for="phone">Phone:</label>
+                <input class="register-inputs" type="tel" name="phone" id="contactPhone" />
+            </p> 
+
+
+            <input type="button" value="Register" onclick="register();">
+
+            <h2>Register Pets</h2>
+
+            <ul id="petList">
+                <!--display the list items (li)-->
+            </ul>
 
         <footer id="footer-info">
 

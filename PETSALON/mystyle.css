@@ -2,3 +2,21 @@ img{
     width: 100%;
     
 }
+
+.container{
+    text-align: center;
+}
+
+.button{
+    display: block;
+    width: 20rem;
+    background-color: #2084be;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #2084be;
+    border-radius: 1rem;
+    margin-top: 3rem;
+}

@@ -44,27 +44,47 @@ const silvestre = new Pet("silvestre",3,"dane","f","Full service","Dyllan","619 
 
 const zorro = new Pet("Zorro",2,"dane","f","Full service","Nalani","619 789-43-76")
 
-register(Maky);
-register(silvestre);
-register(zorro);
+pets.push(Maky);
+pets.push(silvestre);
+pets.push(zorro);
 
+//getting the values form the HTML inputs
+var txtName=document.getElementById(`petName`);
+var txtAge=document.getElementById(`petAge`);
+var txtBreed=document.getElementById(`petBreed`);
+var txtGender=document.getElementById(`petGender`);
+var txtService=document.getElementById(`petService`);
+var txtOwnerName=document.getElementById(`OwnerName`);
+var txtPhone=document.getElementById(`contactPhone`);
 
 //register function
-function register(aPet){
+function register(){
+    const thePet = new Pet(txtName.value,txtAge.value,txtBreed.value,txtGender.value,txtService.value,txtOwnerName.value,txtPhone.value);
+    console.log(thePet);
+
     //push the pets to the array
-    pets.push(aPet);
-
-    //call the counter function
-    counter();
-
+    pets.push(pets);
+    //*call the counter function
+    //counter();
+    clear();
     //display on the console the pets array
-
-    console.log(aPet);
-    
+    //console.log(aPet);
+    displayList(thePet);    
 }
 
+function clear() {
+    txtName.value="";
+    txtAge.value="";
+    txtBreed.value="";
+    txtGender.value="";
+    txtOnwnerName.value="";
+    txtPhone.value="";
+}
+
+
+
 function status() {
-    alert("Register pets: " + pets.length);
+    //alert("Register pets: " + pets.length);
     console.log("Register pets: " + pets.length);
     
     //console.log(pets[0].name);
@@ -76,4 +96,20 @@ function status() {
     }
 }
 
-status();
+//status();
+
+
+function displayList(aPet) {
+    //select the HMTL element petList
+    var list = document.getElementById('petList')
+
+    //create the li code for the pet
+    var li=`
+    <li> ${aPet.name} ${aPet.age} ${aPet.breed} ${aPet.gender}${aPet.service} ${aPet.ownerName} ${aPet.contactPhone} </li>
+    `;
+
+    //Insert li in the HTML
+    list.innerHTML+=li;
+}
+
+displayList(Maky);

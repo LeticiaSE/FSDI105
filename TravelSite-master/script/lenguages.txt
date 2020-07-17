@@ -1,0 +1,7 @@
+HTML5
+CSS3
+JS
+JQuery
+Python
+C
+C++
