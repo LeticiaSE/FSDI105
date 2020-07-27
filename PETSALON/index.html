@@ -6,6 +6,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="mystyle.css">
     <title>Fashion Pet</title>
+
+    <style >
+        td{     /*estilo de la presentacion de la tabla*/
+            border: 2px solid #8C4E37;
+            border-radius: 5px;
+            padding: 10px;      
+        }
+
+        td img{
+            width: 350px;
+            border-radius: 5px;  /*margenes de la imagen*/
+        }
+
+        td img:hover{
+            transform: scale(1.5); /*agranda la imagem al contacto con el cursor*/
+        }
+
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,17 +47,41 @@
     </nav>
 
 
-      <div class="container">
+    <div class="container">
+        <h1 class="text-center display-1">The Fashion Pet</h1>
+        <img src="https://helica.mx/images/perros-banner.jpg" alt="Pets">
+        <!--<img src="https://images.app.goo.gl/feSvTV8nSDmcLSZP9" alt="pets">-->
+    </div>
 
-      <h1 class="text-center display-1">The Fashion Pet</h1>
-      <img src="https://helica.mx/images/perros-banner.jpg" alt="Pets">
-      <!--<img src="https://images.app.goo.gl/feSvTV8nSDmcLSZP9" alt="pets">-->
+    <!-- Paquetes-->
+    <main >
+        <table class="section">
+            <tr>
+                <th colspan="3"> Paquetes </th>
+            </tr>
+            <tr>
+                <td><img src="img/masaje.jpg" alt="photo 1">Bath with massage</td>
+                <td><img src="img/corte pelo.jpg" alt="photo 2">Hair cut</td>
+                <td><img src="img/corte uñas.png" alt="photo 3">Nail cut</td>
+            </tr>
+            <tr>
+                <td><img src="img/oidos.jpg" alt="photo 4">Cleaning of ears</td>
+                <td><img src="img/estetica.jpg" alt="photo 5">Aesthetic arrangement</td>
+                <td><img src="img/servicios.png" alt="photo 6"> Full Service </td>
+            </tr>
+        </table>
+    </main>
 
-      </div>
+
+
+    
+    
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <footer class="footer-margin">
+        <p>All the copyrights reserved 2020 &copy; Leticia Espinoza</p>
+    </footer>
 </body>
 </html>

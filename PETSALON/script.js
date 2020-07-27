@@ -25,6 +25,7 @@ console.log(pets);
 //object constructor for the pets (multiple)
 //name, age, breed, gender, service,ownerName,contactPhone
 
+var petId=0;
 class Pet{
     constructor(name,age,breed,gender,service,ownerName,contactPhone){
     this.name=name;
@@ -34,6 +35,8 @@ class Pet{
     this.service=service;
     this.ownerName=ownerName;
     this.contactPhone=contactPhone;
+    this.id=petId;
+    petId+=1;
     }   
 }
 
@@ -49,13 +52,13 @@ pets.push(silvestre);
 pets.push(zorro);
 
 //getting the values form the HTML inputs
-var txtName=document.getElementById(`petName`);
-var txtAge=document.getElementById(`petAge`);
-var txtBreed=document.getElementById(`petBreed`);
-var txtGender=document.getElementById(`petGender`);
-var txtService=document.getElementById(`petService`);
-var txtOwnerName=document.getElementById(`OwnerName`);
-var txtPhone=document.getElementById(`contactPhone`);
+var txtName=document.getElementById('petName');
+var txtAge=document.getElementById('petAge');
+var txtBreed=document.getElementById('petBreed');
+var txtGender=document.getElementById('petGender');
+var txtService=document.getElementById('petService');
+var txtOwnerName=document.getElementById('ownerName');
+var txtPhone=document.getElementById('contactPhone');
 
 //register function
 function register(){
@@ -69,7 +72,9 @@ function register(){
     clear();
     //display on the console the pets array
     //console.log(aPet);
-    displayList(thePet);    
+    //display 
+   // displayList(thePet); 
+    displayTable(thePet);   
 }
 
 function clear() {
@@ -77,10 +82,9 @@ function clear() {
     txtAge.value="";
     txtBreed.value="";
     txtGender.value="";
-    txtOnwnerName.value="";
+    txtOwnerName.value="";
     txtPhone.value="";
 }
-
 
 
 function status() {
@@ -101,15 +105,72 @@ function status() {
 
 function displayList(aPet) {
     //select the HMTL element petList
-    var list = document.getElementById('petList')
+    var list = document.getElementById('petList');
 
     //create the li code for the pet
     var li=`
-    <li> ${aPet.name} ${aPet.age} ${aPet.breed} ${aPet.gender}${aPet.service} ${aPet.ownerName} ${aPet.contactPhone} </li>
+    <li id="${aPet.name}"> ${aPet.age} ${aPet.breed} ${aPet.gender}${aPet.service} ${aPet.ownerName} ${aPet.contactPhone} <button onclick="deletePet(${aPet.id});"> Delete </button> </li>
     `;
 
     //Insert li in the HTML
     list.innerHTML+=li;
 }
 
-displayList(Maky);
+displayTable(Maky);//display the pet in a li  **change**
+displayTable(silvestre);
+displayTable(zorro);
+
+
+function displayTable(aPet) {
+    //**register.html create a <table id=""> </table> without row*/
+
+    //select the table $ or JS (getElementById)
+    var table = document.getElementById('petTable');
+    
+    //create a <tr> <td>name</td> <td> age</td> </tr>
+    var showTable=`
+    <tr id="${aPet.id}"><td>${aPet.name}</td> <td>${aPet.age}</td> <td>${aPet.breed}</td> <td>${aPet.gender}</td><td>${aPet.service}</td> <td>${aPet.ownerName}</td> <td>${aPet.contactPhone}</td>  <td> <button onclick="deletePet(${aPet.id});"> Delete </button> </td> </tr>
+    `;
+
+    //insert the tr in table
+    table.innerHTML+=showTable;
+}
+
+function deletePet(petId) {
+    console.log("delete pet" + petId);
+    //add id to the tr/li and add a delete button
+    var indexDelete;
+    var tr=document.getElementById(petId);
+
+    //search the pet (travel array to find the pet)
+    for (var i = 0; i < pets.length; i++) {
+        var selectedId=pets[i].id;
+        if (selectedId===petId) {
+            indexDelete=i;
+        }
+    }
+
+    //delete from the array splice()
+    pets.splice(indexDelete,1);
+
+    //delete from the html remove()
+    tr.remove();
+}
+
+
+function search(aPet) {
+    //get the info form the input and save it in a var .value
+    var txtSearch=document.getElementById('searchPetName').value;
+
+    console.log(txtSearch);
+
+    for (var i = 0; i < pets.length; i++) {
+        var foundPet=pets[i].id;
+        if (foundPet.name.toLowerCase()==txtSearch.toLowerCase()) {
+            //do something to hih
+            
+        }else{
+           console.log("It´s not found");
+        }
+    }
+}
